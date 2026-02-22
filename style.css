@@ -1,0 +1,159 @@
+:root {
+    --bg-body: #f4f7f6;
+    --bg-card: #ffffff;
+    --primary: #4a90e2;
+    --success: #2ecc71;
+    --text-dark: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-dark);
+    margin: 0; padding: 20px;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 1.5rem; margin-top: 0; color: var(--primary); }
+
+.input-group {
+    display: flex; gap: 10px; margin-top: 15px;
+}
+
+input, button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+input[type="text"] { flex: 2; }
+input[type="time"] { flex: 1; }
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.8; }
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-info { display: flex; flex-direction: column; }
+.task-title { font-weight: 600; margin-bottom: 4px; }
+.task-time { font-size: 0.8rem; color: var(--text-light); }
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #eee;
+    margin-right: 10px;
+}
+
+.completed .task-title { text-decoration: line-through; color: var(--text-light); }
+.completed .status-badge { background: var(--success); color: white; }
+
+/* Header Clean */
+.dashboard-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 15px;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0;
+}
+
+.dashboard-header h1 span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--primary);
+    vertical-align: middle;
+    background: rgba(74, 144, 226, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin: 5px 0 0 0;
+    font-size: 0.95rem;
+}
+
+/* Section Summary como uma barra de status */
+.project-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 25px !important; /* Forçando o padding do card */
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.summary-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.status-active {
+    color: var(--success);
+    display: flex;
+    align-items: center;
+}
+
+.status-active::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Responsividade para o resumo */
+@media (max-width: 600px) {
+    .project-summary {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
